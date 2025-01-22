@@ -1,9 +1,19 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
   const navigate = useNavigate();
+
+
+  const [name, setName] = useState("");
+
+
+  useEffect(() => {
+    // Retrieve the name from localStorage or cookies
+    const userName = localStorage.getItem("name");
+    setName(userName);
+  }, []);
 
 
   const handleLogout = () => {
@@ -19,7 +29,7 @@ const Home = () => {
         <button onClick={handleLogout}>Log Out</button>
       </header>
       <main className="container">
-        <p>Welcome to the home page!</p>
+     <p> {name && <h2>Hello, {name}!</h2>}</p>
       </main>
     </div>
   );
@@ -27,6 +37,3 @@ const Home = () => {
 
 
 export default Home;
-
-
-
