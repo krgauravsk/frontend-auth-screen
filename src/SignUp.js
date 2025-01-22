@@ -31,7 +31,8 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5002/api/signup", {
+        await axios.post("https://backend-auth-screen.vercel.app/api/signup", {
+    //   await axios.post("http://localhost:5002/api/signup", {
         name,
         email,
         password,

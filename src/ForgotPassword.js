@@ -9,7 +9,8 @@ const ForgotPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5002/api/forgot-password", { email });
+        await axios.post("https://backend-auth-screen.vercel.app/api/forgot-password", { email });
+    //   await axios.post("http://localhost:5002/api/forgot-password", { email });
       alert("Password reset link sent to your email");
       navigate("/signin");
     } catch (error) {
